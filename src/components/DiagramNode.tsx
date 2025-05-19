@@ -69,7 +69,7 @@ const DiagramNode = ({
 
   if (tooltip) {
     return (
-      <Tooltip content={tooltip} position="top">
+      <Tooltip content={tooltip}>
         {nodeContent}
       </Tooltip>
     );

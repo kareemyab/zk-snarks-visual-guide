@@ -24,17 +24,28 @@ const Tooltip = ({ content, children, position = 'top', className }: TooltipProp
       className="relative inline-block"
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
-      onClick={() => setIsVisible(!isVisible)}
+      onClick={(e) => {
+        e.stopPropagation(); // Prevent click from propagating to parent elements
+        setIsVisible(!isVisible);
+      }}
     >
       {children}
       {isVisible && (
         <div 
           className={cn(
-            "absolute z-50 p-2 rounded-md shadow-lg bg-white border border-gray-200 text-sm max-w-xs",
+            "fixed z-50 p-2 rounded-md shadow-lg bg-white border border-gray-200 text-sm max-w-xs",
             "transition-opacity duration-200 opacity-100 animate-fade-in", 
-            positionClasses[position],
             className
           )}
+          style={{
+            top: position === 'bottom' ? 'calc(100% + 8px)' : position === 'top' ? 'auto' : '50%',
+            bottom: position === 'top' ? 'calc(100% + 8px)' : 'auto',
+            left: position === 'right' ? 'calc(100% + 8px)' : position === 'left' ? 'auto' : '50%',
+            right: position === 'left' ? 'calc(100% + 8px)' : 'auto',
+            transform: (position === 'top' || position === 'bottom') ? 'translateX(-50%)' : 
+                      (position === 'left' || position === 'right') ? 'translateY(-50%)' : 'none',
+          }}
+          onClick={(e) => e.stopPropagation()}
         >
           {content}
         </div>
