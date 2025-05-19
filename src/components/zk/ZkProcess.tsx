@@ -31,7 +31,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <FileText size={24} />,
-      color: 'primary'
+      color: 'primary' as const
     },
     {
       id: 'circuit',
@@ -45,7 +45,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <Code size={24} />,
-      color: 'secondary'
+      color: 'secondary' as const
     },
     {
       id: 'witness',
@@ -59,7 +59,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <Key size={24} />,
-      color: 'muted'
+      color: 'muted' as const
     },
     {
       id: 'publicSignals',
@@ -73,7 +73,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <Database size={24} />,
-      color: 'muted'
+      color: 'muted' as const
     },
     {
       id: 'proof',
@@ -87,7 +87,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <ShieldCheck size={24} />,
-      color: 'accent'
+      color: 'accent' as const
     },
     {
       id: 'verification',
@@ -101,7 +101,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <FileCheck size={24} />,
-      color: 'primary'
+      color: 'primary' as const
     },
   ];
 
