@@ -66,7 +66,7 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
     {
       id: 'user',
       x: 100,
-      y: 100,
+      y: 150,
       label: 'User',
       tooltip: (
         <div className="p-1 max-w-xs">
@@ -80,7 +80,7 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
     {
       id: 'validator1',
       x: 250,
-      y: 50,
+      y: 70,
       label: 'Validator 1',
       tooltip: (
         <div className="p-1 max-w-xs">
@@ -108,7 +108,7 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
     {
       id: 'validator3',
       x: 250,
-      y: 250,
+      y: 230,
       label: 'Validator 3',
       tooltip: (
         <div className="p-1 max-w-xs">
