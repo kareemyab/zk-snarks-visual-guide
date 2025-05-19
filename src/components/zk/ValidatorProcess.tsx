@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import InteractiveDiagram, { NodePosition, Connection } from '../InteractiveDiagram';
-import { CheckCircle, XCircle, Upload, Server, Database, ShieldCheck, Users } from 'lucide-react';
+import { CheckCircle, XCircle, Upload, Server, Database, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ValidatorProcessProps {
@@ -79,7 +79,7 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
     },
     {
       id: 'validator1',
-      x: 300,
+      x: 250,
       y: 50,
       label: 'Validator 1',
       tooltip: (
@@ -93,8 +93,8 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
     },
     {
       id: 'validator2',
-      x: 300,
-      y: 100,
+      x: 250,
+      y: 150,
       label: 'Validator 2',
       tooltip: (
         <div className="p-1 max-w-xs">
@@ -107,8 +107,8 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
     },
     {
       id: 'validator3',
-      x: 300,
-      y: 150,
+      x: 250,
+      y: 250,
       label: 'Validator 3',
       tooltip: (
         <div className="p-1 max-w-xs">
@@ -121,8 +121,8 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
     },
     {
       id: 'aggregator',
-      x: 500,
-      y: 100,
+      x: 400,
+      y: 150,
       label: 'Aggregator',
       tooltip: (
         <div className="p-1 max-w-xs">
@@ -135,8 +135,8 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
     },
     {
       id: 'blockchain',
-      x: 700,
-      y: 100,
+      x: 550,
+      y: 150,
       label: 'Blockchain',
       tooltip: (
         <div className="p-1 max-w-xs">
