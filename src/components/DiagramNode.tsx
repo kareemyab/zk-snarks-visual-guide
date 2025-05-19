@@ -61,7 +61,9 @@ const DiagramNode = ({
       >
         {icon || <div className="w-6 h-6" />}
       </div>
-      <div className="mt-2 text-xs font-medium text-center max-w-[100px]">{label}</div>
+      <div className="mt-2 text-xs font-medium text-center max-w-[100px] whitespace-normal break-words">
+        {label}
+      </div>
     </div>
   );
 

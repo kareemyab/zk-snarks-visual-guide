@@ -179,9 +179,11 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
             </h3>
             {activeNodeId && nodes.find(n => n.id === activeNodeId)?.tooltip ? (
               <p className="text-sm">
-                {/* Fixed: Safely access tooltip content */}
+                {/* Get tooltip description safely without trying to access props on potentially non-React elements */}
                 {React.isValidElement(nodes.find(n => n.id === activeNodeId)?.tooltip) && 
-                 React.Children.toArray((nodes.find(n => n.id === activeNodeId)?.tooltip as React.ReactElement).props.children)[2]?.props?.children}
+                 ((nodes.find(n => n.id === activeNodeId)?.tooltip as React.ReactElement)
+                   .props.children.find((child: React.ReactElement) => 
+                     child.type === 'p' && child.props.className === 'text-xs')?.props.children)}
               </p>
             ) : (
               <p className="text-sm">Click on any component in the diagram to learn more about it.</p>
