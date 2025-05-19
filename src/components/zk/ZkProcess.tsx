@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import InteractiveDiagram from '../InteractiveDiagram';
+import InteractiveDiagram, { NodePosition, Connection } from '../InteractiveDiagram';
 import { Lock, Unlock, Key, FileText, Database, Code, FileCheck, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -18,7 +18,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
     setActiveNodeId(id);
   };
 
-  const nodes = [
+  const nodes: NodePosition[] = [
     {
       id: 'input',
       x: 100,
@@ -31,7 +31,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <FileText size={24} />,
-      color: 'primary' as const
+      color: 'primary'
     },
     {
       id: 'circuit',
@@ -45,7 +45,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <Code size={24} />,
-      color: 'secondary' as const
+      color: 'secondary'
     },
     {
       id: 'witness',
@@ -59,7 +59,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <Key size={24} />,
-      color: 'muted' as const
+      color: 'muted'
     },
     {
       id: 'publicSignals',
@@ -73,7 +73,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <Database size={24} />,
-      color: 'muted' as const
+      color: 'muted'
     },
     {
       id: 'proof',
@@ -87,7 +87,7 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <ShieldCheck size={24} />,
-      color: 'accent' as const
+      color: 'accent'
     },
     {
       id: 'verification',
@@ -101,12 +101,12 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
         </div>
       ),
       icon: <FileCheck size={24} />,
-      color: 'primary' as const
+      color: 'primary'
     },
   ];
 
-  const getConnections = () => {
-    const baseConnections = [
+  const getConnections = (): Connection[] => {
+    const baseConnections: Connection[] = [
       { from: 'input', to: 'circuit', animated: animationStep >= 1 },
     ];
 

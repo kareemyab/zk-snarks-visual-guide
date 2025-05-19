@@ -6,7 +6,7 @@ import DiagramConnector from './DiagramConnector';
 import Tooltip from './Tooltip';
 import { Lock, Unlock, Key, FileCheck, Database, UserCircle, ShieldCheck, Code } from 'lucide-react';
 
-interface NodePosition {
+export interface NodePosition {
   id: string;
   x: number;
   y: number;
@@ -16,7 +16,7 @@ interface NodePosition {
   color?: 'primary' | 'secondary' | 'accent' | 'muted';
 }
 
-interface Connection {
+export interface Connection {
   from: string;
   to: string;
   animated?: boolean;

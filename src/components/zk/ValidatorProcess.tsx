@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import InteractiveDiagram from '../InteractiveDiagram';
+import InteractiveDiagram, { NodePosition, Connection } from '../InteractiveDiagram';
 import { CheckCircle, XCircle, Upload, Server, Database, ShieldCheck, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -62,7 +61,7 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
     }, 1000);
   };
   
-  const nodes = [
+  const nodes: NodePosition[] = [
     {
       id: 'user',
       x: 100,
@@ -75,7 +74,7 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
         </div>
       ),
       icon: <Upload size={24} />,
-      color: 'primary' as const
+      color: 'primary'
     },
     {
       id: 'validator1',
@@ -89,7 +88,7 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
         </div>
       ),
       icon: <Server size={24} />,
-      color: validatorVotes[0] === null ? 'muted' : validatorVotes[0] ? 'accent' : 'primary' as const
+      color: validatorVotes[0] === null ? 'muted' : validatorVotes[0] ? 'accent' : 'primary'
     },
     {
       id: 'validator2',
@@ -103,7 +102,7 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
         </div>
       ),
       icon: <Server size={24} />,
-      color: validatorVotes[1] === null ? 'muted' : validatorVotes[1] ? 'accent' : 'primary' as const
+      color: validatorVotes[1] === null ? 'muted' : validatorVotes[1] ? 'accent' : 'primary'
     },
     {
       id: 'validator3',
@@ -117,7 +116,7 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
         </div>
       ),
       icon: <Server size={24} />,
-      color: validatorVotes[2] === null ? 'muted' : validatorVotes[2] ? 'accent' : 'primary' as const
+      color: validatorVotes[2] === null ? 'muted' : validatorVotes[2] ? 'accent' : 'primary'
     },
     {
       id: 'aggregator',
@@ -131,7 +130,7 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
         </div>
       ),
       icon: <Users size={24} />,
-      color: 'secondary' as const
+      color: 'secondary'
     },
     {
       id: 'blockchain',
@@ -145,11 +144,11 @@ const ValidatorProcess = ({ className }: ValidatorProcessProps) => {
         </div>
       ),
       icon: <Database size={24} />,
-      color: consensus === 100 ? 'primary' : 'muted' as const
+      color: consensus === 100 ? 'primary' : 'muted'
     }
   ];
   
-  const connections = [
+  const connections: Connection[] = [
     { from: 'user', to: 'validator1', animated: proofStatus !== 'pending' },
     { from: 'user', to: 'validator2', animated: proofStatus !== 'pending' },
     { from: 'user', to: 'validator3', animated: proofStatus !== 'pending' },
