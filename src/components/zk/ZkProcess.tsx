@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import InteractiveDiagram, { NodePosition, Connection } from '../InteractiveDiagram';
-import { Lock, Unlock, Key, FileText, Database, Code, FileCheck, ShieldCheck } from 'lucide-react';
+import { FileText, Code, Key, Database, ShieldCheck, FileCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ZkProcessProps {
@@ -177,9 +177,11 @@ const ZkProcess = ({ className }: ZkProcessProps) => {
             <h3 className="font-medium text-lg mb-2">
               {activeNodeId ? nodes.find(n => n.id === activeNodeId)?.label : 'Select a component'}
             </h3>
-            {activeNodeId ? (
+            {activeNodeId && nodes.find(n => n.id === activeNodeId)?.tooltip ? (
               <p className="text-sm">
-                {nodes.find(n => n.id === activeNodeId)?.tooltip?.props.children[2].props.children}
+                {/* Fixed: Safely access tooltip content */}
+                {React.isValidElement(nodes.find(n => n.id === activeNodeId)?.tooltip) && 
+                 React.Children.toArray((nodes.find(n => n.id === activeNodeId)?.tooltip as React.ReactElement).props.children)[2]?.props?.children}
               </p>
             ) : (
               <p className="text-sm">Click on any component in the diagram to learn more about it.</p>
