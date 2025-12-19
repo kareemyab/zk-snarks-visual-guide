@@ -94,6 +94,10 @@ const Index = () => {
             {steps[currentStep]}
           </div>
 
+          {/* Debunk link */}
+          <div className="mb-6 text-center">
+            <a href="/debunk-emc2" className="text-blue-600 hover:underline">Debunk E=mc²</a>
+          </div>
           {/* Navigation */}
           <StepNavigation
             currentStep={currentStep}
